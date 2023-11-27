@@ -4,10 +4,14 @@ import "../src/styles/nav.css";
 
 function App() {
 
+  // Loading saved options from localStorage or use default values
+  const savedGroupingOption = localStorage.getItem('groupingOption') || 'status';
+  const savedSortOption = localStorage.getItem('sortOption') || 'priority';
+
   const [tickets, setTickets] = useState([]);
   const [users, setUsers] = useState([]);
-  const [groupingOption, setGroupingOption] = useState('status'); // Default grouping option
-  const [sortOption, setSortOption] = useState('priority'); // Default sorting option
+  const [groupingOption, setGroupingOption] = useState(savedGroupingOption); 
+  const [sortOption, setSortOption] = useState(savedSortOption);
 
   useEffect(()=>{
     const fetchData = async () => {
@@ -24,6 +28,12 @@ function App() {
 
     fetchData();
   },[]);
+
+  // Saving the selected options to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem('groupingOption', groupingOption);
+    localStorage.setItem('sortOption', sortOption);
+  }, [groupingOption, sortOption]);
 
   return (
     <div>
