@@ -1,0 +1,57 @@
+nav {
+    background-color: #3498db;
+    padding: 10px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+  
+label {
+margin-right: 10px;
+}
+
+select {
+padding: 5px;
+margin-right: 10px;
+}
+  
+div {
+margin-bottom: 20px;
+}
+
+select {
+    padding: 8px;
+    border: 1px solid #2c3e50;
+    border-radius: 4px;
+    background-color: #ecf0f1;
+    color: #34495e;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  /* Style when hovering over the select dropdown */
+  select:hover {
+    background-color: #d5d8dc;
+  }
+  
+  /* Style when the select dropdown is open */
+  select:active,
+  select:focus {
+    border-color: #2980b9;
+    box-shadow: 0 0 5px rgba(41, 128, 185, 0.5);
+  }
+  
+  @media only screen and (max-width: 600px) {
+    
+    nav {
+      flex-direction: column; 
+      align-items: flex-start;
+    }
+  
+    select {
+      width: 100%; 
+      margin-bottom: 10px; 
+    }
+  } 

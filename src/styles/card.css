@@ -1,0 +1,37 @@
+/* For the ticketCard style */
+.ticketCard {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 16rem;
+    max-width: 400px;
+  }
+  
+  /* For the Image style */
+  .image {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  /* For the userInfo style */
+  .userInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  /* For the features style */
+  .features {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 5px;
+    margin: 10px;
+  }
+
+  
