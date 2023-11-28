@@ -60,7 +60,7 @@ const TicketCard = ({ ticket, users, groupingOption }) => {
       {groupingOption !== "priority" && (
           <span>
             <img
-              title={priorityMat[ticket.priority]+(ticket.priority===(0 || 4) ? "" : " priority")}
+              title={priorityMat[ticket.priority]+([0, 4].includes(ticket.priority) ? "" : " priority")}
               src={priority[ticket.priority]}
               alt={priorityMat[ticket.priority]}
               className="image"
