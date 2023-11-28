@@ -43,17 +43,18 @@ const TicketCard = ({ ticket, users, groupingOption }) => {
           />
         )}
       </div>
-
-      {groupingOption !== "status" && (
-        <>
+       
+       <div style={{display: 'flex'}}>
+       {groupingOption !== "status" && (
           <img
             src={workStatus[ticket.status]}
             alt={ticket.status}
             className="image"
           />
-          <h4>{ticket.title}</h4>
-        </>
       )}
+        <h4 style={{marginTop: 0}}>{ticket.title}</h4>
+       </div>
+      
       {groupingOption !== "priority" && (
           <span>
             <img

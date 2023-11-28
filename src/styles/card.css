@@ -16,6 +16,7 @@
     width: 30px;
     border-radius: 50%;
     object-fit: cover;
+    margin-top: 5px;
   }
   
   /* For the userInfo style */

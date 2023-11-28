@@ -20,7 +20,6 @@ function App() {
         const data = await response.json();
         setTickets(data.tickets);
         setUsers(data.users);
-        // console.log(data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -35,24 +34,53 @@ function App() {
     localStorage.setItem('sortOption', sortOption);
   }, [groupingOption, sortOption]);
 
+
+  const [optionsVisible, setOptionsVisible] = useState(false);
+
   return (
     <div>
-      <nav>
-        <label>Grouping:</label>
-        <select value={groupingOption} onChange={(e) => setGroupingOption(e.target.value)}>
-          <option value="status">Status</option>
-          <option value="userId">User</option>
-          <option value="priority">Priority</option>
-        </select>
+      <nav className="navbar">
+        <button
+          className="display-btn"
+          onClick={() => {
+            setOptionsVisible(!optionsVisible);
+          }}
+        >
+        Display
+        </button>
 
-        <label>Ordering:</label>
-        <select value={sortOption} onChange={(e) => setSortOption(e.target.value)}>
-          <option value="priority">Priority</option>
-          <option value="title">Title</option>
-        </select>
+        {optionsVisible && (
+          <div className="options-container">
+            <label>Grouping:</label>
+            <select
+              className="option-select"
+              value={groupingOption}
+              onChange={(e) => setGroupingOption(e.target.value)}
+            >
+              <option value="status">Status</option>
+              <option value="userId">User</option>
+              <option value="priority">Priority</option>
+            </select>
+
+            <label>Ordering:</label>
+            <select
+              className="option-select"
+              value={sortOption}
+              onChange={(e) => setSortOption(e.target.value)}
+            >
+              <option value="priority">Priority</option>
+              <option value="title">Title</option>
+            </select>
+          </div>
+        )}
       </nav>
 
-      <KanbanBoard tickets={tickets} users={users} groupingOption={groupingOption} sortOption={sortOption} />
+      <KanbanBoard
+        tickets={tickets}
+        users={users}
+        groupingOption={groupingOption}
+        sortOption={sortOption}
+      />
     </div>
   );
 }

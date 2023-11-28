@@ -36,7 +36,7 @@ const TicketColumn = ({ title, tickets, users, groupingOption }) => {
   const priorityMat = ["No priority", "Low", "Medium", "High", "Urgent"];
   return (
     <div>
-      <h4 style={{ marginLeft: "10px", display: "flex", justifyContent: "space-between", alignContent: "center"}}>
+      <h4>
         <span style={{display: "flex", justifyContent: "space-between", alignContent: "center"}}>
           {user ? (
             <>

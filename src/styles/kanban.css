@@ -1,0 +1,11 @@
+#kanban{
+  display: flex;
+  background-color: #f0f0f0;
+  padding: 7px 15px;
+}
+
+@media screen and (max-width: 1300px) {
+    #kanban{
+        flex-wrap: wrap;
+    }
+}
