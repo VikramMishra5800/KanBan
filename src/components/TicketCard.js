@@ -37,6 +37,7 @@ const TicketCard = ({ ticket, users, groupingOption }) => {
         <div>{ticket.id}</div>
         {groupingOption !== "userId" && (
           <img
+            title={user.name}
             src={user.image ? user.image : img}
             alt={user.name}
             className="image"
@@ -47,6 +48,7 @@ const TicketCard = ({ ticket, users, groupingOption }) => {
        <div style={{display: 'flex'}}>
        {groupingOption !== "status" && (
           <img
+            title={ticket.status}
             src={workStatus[ticket.status]}
             alt={ticket.status}
             className="image"
@@ -58,6 +60,7 @@ const TicketCard = ({ ticket, users, groupingOption }) => {
       {groupingOption !== "priority" && (
           <span>
             <img
+              title={priorityMat[ticket.priority]+(ticket.priority===(0 || 4) ? "" : " priority")}
               src={priority[ticket.priority]}
               alt={priorityMat[ticket.priority]}
               className="image"
