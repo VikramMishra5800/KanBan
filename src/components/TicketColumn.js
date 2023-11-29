@@ -14,6 +14,7 @@ import medium from "../images/volume.png";
 import progress from "../images/work-in-progress.png";
 import noPriority from "../images/option.png";
 import "../styles/column.css"
+import { KanbanState } from "../context/KanbanProvider.js";
 
 const workStatus = {
   'Done': done,
@@ -31,7 +32,9 @@ const priority = {
   4: urgent,
 };
 
-const TicketColumn = ({ title, tickets, users, groupingOption }) => {
+const TicketColumn = ({ title, tickets }) => {
+
+  const {users, groupingOption} = KanbanState();
   const user = users.find((user) => user.id === title);
   const priorityMat = ["No priority", "Low", "Medium", "High", "Urgent"];
   return (
@@ -79,9 +82,7 @@ const TicketColumn = ({ title, tickets, users, groupingOption }) => {
       {tickets.map((ticket) => (
         <TicketCard
           key={ticket.id}
-          users={users}
           ticket={ticket}
-          groupingOption={groupingOption}
         />
       ))}
     </div>

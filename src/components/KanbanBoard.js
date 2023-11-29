@@ -1,8 +1,11 @@
 import React from "react";
 import TicketColumn from "./TicketColumn";
 import "../styles/kanban.css";
+import { KanbanState } from "../context/KanbanProvider.js";
 
-const KanbanBoard = ({ tickets, users, groupingOption, sortOption }) => {
+const KanbanBoard = () => {
+
+    const { tickets, groupingOption, sortOption } = KanbanState();
 
     const groupTickets = (tickets, groupingOption) => {
         return tickets.reduce((grouped, ticket) => {
@@ -33,7 +36,7 @@ const KanbanBoard = ({ tickets, users, groupingOption, sortOption }) => {
   return (
     <div id="kanban">
       {Object.entries(sortGroupTickets).reverse().map(([groupName,allTickets])=>{
-        return (<TicketColumn key = {groupName} users = {users} title={groupName} tickets={allTickets} groupingOption={groupingOption}/>)
+        return (<TicketColumn key = {groupName} title={groupName} tickets={allTickets}/>)
       })}
     </div>
   );

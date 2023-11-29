@@ -1,17 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import KanbanBoard from './components/KanbanBoard';
 import "../src/styles/nav.css";
+import { KanbanState } from './context/KanbanProvider.js';
 
 function App() {
 
-  // Loading saved options from localStorage or use default values
-  const savedGroupingOption = localStorage.getItem('groupingOption') || 'status';
-  const savedSortOption = localStorage.getItem('sortOption') || 'priority';
-
-  const [tickets, setTickets] = useState([]);
-  const [users, setUsers] = useState([]);
-  const [groupingOption, setGroupingOption] = useState(savedGroupingOption); 
-  const [sortOption, setSortOption] = useState(savedSortOption);
+  const {setTickets,setUsers,groupingOption,setGroupingOption,sortOption,setSortOption} = KanbanState();
 
   useEffect(()=>{
     const fetchData = async () => {
@@ -26,13 +20,13 @@ function App() {
     };
 
     fetchData();
-  },[]);
+  });
 
   // Saving the selected options to localStorage whenever they change
   useEffect(() => {
     localStorage.setItem('groupingOption', groupingOption);
     localStorage.setItem('sortOption', sortOption);
-  }, [groupingOption, sortOption]);
+  }, [groupingOption,sortOption]);
 
 
   const [optionsVisible, setOptionsVisible] = useState(false);
@@ -75,12 +69,7 @@ function App() {
         )}
       </nav>
 
-      <KanbanBoard
-        tickets={tickets}
-        users={users}
-        groupingOption={groupingOption}
-        sortOption={sortOption}
-      />
+      <KanbanBoard/>
     </div>
   );
 }
